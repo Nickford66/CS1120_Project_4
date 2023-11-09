@@ -2,6 +2,8 @@ class Bookshop:
     def __int__(self, orders):
         self.orders = orders
 
+    def get_bookshop_order(self):
+        return self.bookshopO
     def method1(self):
         print("method1")
         # returns same list but the tuple w/ 2 items only
@@ -13,7 +15,7 @@ class Bookshop:
         # filter out minimum price of product, 4 tuples
         # has order num, then which order has the least amnt total
         # so get the quantity * price and return the lowest one
-
+        
     def method3(self):
         print("method3")
         # filters out the maximum price ? so same thing as before
