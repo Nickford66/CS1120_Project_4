@@ -2,8 +2,21 @@ class Bookshop:
     def __int__(self, orders):
         self.orders = orders
 
-    def get_bookshop_order(self):
-        return self.bookshopO
+    
+    def get_order_number(self):
+        return self.orderNumber
+    def get_quanity(self):
+        return self.quanity
+    def get_price_per_item(self):
+        return self.pricePerItem
+        
+    def set_order_number(self, orderNumber):
+        self.orderNumber = orderNumber
+    def set_quanity(self, quanity):
+        self.quanity = quanity
+    def set_price_per_item(self, pricePerItem):
+        self.pricePerItem = pricePerItem
+        
     def method1(self):
         print("method1")
         # returns same list but the tuple w/ 2 items only
