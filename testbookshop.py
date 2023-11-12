@@ -99,7 +99,7 @@ class TestBookshop(unittest.TestCase):
         print("Actual:", actual)
         
     def test_10(self):
-        actual = self.test_order.method2()
+        actual = self.test_order.method10()
         expected = [4, 3, 3, 4]
         self.assertEqual(actual, expected)
         print("\nExpected:", expected)
