@@ -1,21 +1,6 @@
 class Bookshop:
-    def __int__(self, orders):
+    def __init__(self, orders):
         self.orders = orders
-
-    
-    def get_order_number(self):
-        return self.orderNumber
-    def get_quanity(self):
-        return self.quanity
-    def get_price_per_item(self):
-        return self.pricePerItem
-        
-    def set_order_number(self, orderNumber):
-        self.orderNumber = orderNumber
-    def set_quanity(self, quanity):
-        self.quanity = quanity
-    def set_price_per_item(self, pricePerItem):
-        self.pricePerItem = pricePerItem
         
     def method1(self):
         m = [(order[0], *(map(lambda x: (x[0], x[1] * x[2] + 10 if (x[1] * x[2]) < 100 else x[1] * x[2]), order[1:])))
@@ -31,12 +16,16 @@ class Bookshop:
         # filter out minimum price of product, 4 tuples
         # has order num, then which order has the least amnt total
         # so get the quantity * price and return the lowest one
+        orders = self.method1()
+        return [(order[0], min(order[1:], key=lambda x: x[1])[0]) for order in orders]
         
     def method3(self):
         print("method3")
         # filters out the maximum price ? so same thing as before
         # so order num, then order w the highest total amnt
-
+        orders = self.method1()
+        return [(order[0], max(order[1:], key=lambda x: x[1])[0]) for order in orders]
+        
     def method4(self):
         order = self.orders
         book_order = []  # new list
@@ -75,7 +64,15 @@ class Bookshop:
         print("method6")
         # same as before but total quantity? so amount of books in order
         # so which order gets ordered the most w highest quantity added together
-
+        orderDict = {}
+        for order in orders:
+            for tup in order[1:]:
+                if tup[0] not in orderDict:
+                     orderDict[tup[0]] = tup[1]
+                else:
+                     orderDict[tup[0]] += tup[1]
+        return [val for val in max(orderDict.items(), key=lambda x: x[1])]
+    
     def method7(self):
         order = self.orders
         # get the whole order
@@ -92,6 +89,7 @@ class Bookshop:
         print("method8")
         # returns a total quantity of all books ordered
         # just a value no list or anything
+        return sum(sum(item[1] for item in line[1:]) for line in self.orders)
 
     def method9(self):
         order5 = self.orders
@@ -116,3 +114,4 @@ class Bookshop:
         print("method10")
         # returns a list w/ 4 items
         # each item represents length of sublist from index - to index 3
+        return [len(line) for line in self.orders]
