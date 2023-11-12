@@ -1,4 +1,5 @@
 import unittest
+from bookshop import Bookshop
 
 class TestBookshop(unittest.TestCase):
     def setUp(self):
