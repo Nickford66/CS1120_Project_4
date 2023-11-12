@@ -1,3 +1,5 @@
+from functools import reduce
+
 class Bookshop:
     def __init__(self, orders):
         self.orders = orders
