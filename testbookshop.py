@@ -22,10 +22,28 @@ class TestBookshop(unittest.TestCase):
         print("Actual:", actual)
         
     def test_02(self):
-      self.assertTrue()
+        actual = self.test_order.method2()
+        expected = [
+            (1, '5464'),
+            (2, '5464'),
+            (3, '5464'),
+            (4, '8732')
+        ]
+        self.assertEqual(actual, expected)
+        print("\nExpected:", expected)
+        print("Actual:", actual)
         
     def test_03(self):
-      self.assertTrue()
+        actual = self.test_order.method3()
+        expected = [
+            (1, '9744'),
+            (2, '9744'),
+            (3, '88112'),
+            (4, '7733')
+        ]
+        self.assertEqual(actual, expected)
+        print("\nExpected:", expected)
+        print("Actual:", actual)
         
     def test_04(self):
         actual = self.test_order.method4()
@@ -47,7 +65,11 @@ class TestBookshop(unittest.TestCase):
         print("Returned List:", actual)
         
     def test_06(self):
-      self.assertTrue()
+        actual = self.test_order.method6()
+        expected = ['5464',22]
+        self.assertEqual(actual, expected)
+        print("\nExpected:", expected)
+        print("Actual:", actual)
         
     def test_07(self):
         actual = self.test_order.method7()
@@ -62,7 +84,11 @@ class TestBookshop(unittest.TestCase):
         print("Actual:", actual)
         
     def test_08(self):
-      self.assertTrue()
+        actual = self.test_order.method8()
+        expected = 92
+        self.assertEqual(actual, expected)
+        print("\nExpected:", expected)
+        print("Actual:", actual)
         
     def test_09(self):   
         actual = self.test_order.method9()
@@ -72,7 +98,11 @@ class TestBookshop(unittest.TestCase):
         print("Actual:", actual)
         
     def test_10(self):
-      self.assertTrue()
+        actual = self.test_order.method2()
+        expected = [4, 3, 3, 4]
+        self.assertEqual(actual, expected)
+        print("\nExpected:", expected)
+        print("Actual:", actual)
 
 if __name__ == '__main__':
     unittest.main()
