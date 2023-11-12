@@ -14,7 +14,6 @@ class Bookshop:
         # items r ( order num, quantity * price )
     
     def method2(self):
-        print("method2")
         # filter out minimum price of product, 4 tuples
         # has order num, then which order has the least amnt total
         # so get the quantity * price and return the lowest one
@@ -22,7 +21,6 @@ class Bookshop:
         return [(order[0], min(order[1:], key=lambda x: x[1])[0]) for order in orders]
         
     def method3(self):
-        print("method3")
         # filters out the maximum price ? so same thing as before
         # so order num, then order w the highest total amnt
         orders = self.method1()
@@ -63,7 +61,6 @@ class Bookshop:
         # returns order num, which pops up multiple times, w the most amnt and the total
 
     def method6(self):
-        print("method6")
         # same as before but total quantity? so amount of books in order
         # so which order gets ordered the most w highest quantity added together
         orderDict = {}
@@ -88,7 +85,6 @@ class Bookshop:
         # [(max bookshop order number, total quantity)....(min bookshop order num, total quantity)]
 
     def method8(self):
-        print("method8")
         # returns a total quantity of all books ordered
         # just a value no list or anything
         return sum(sum(item[1] for item in line[1:]) for line in self.orders)
@@ -113,7 +109,6 @@ class Bookshop:
         # count the occurrence of book order number in all orders
 
     def method10(self):
-        print("method10")
         # returns a list w/ 4 items
         # each item represents length of sublist from index - to index 3
         return [len(line) for line in self.orders]
