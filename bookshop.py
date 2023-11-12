@@ -67,7 +67,7 @@ class Bookshop:
         # same as before but total quantity? so amount of books in order
         # so which order gets ordered the most w highest quantity added together
         orderDict = {}
-        for order in orders:
+        for order in self.orders:
             for tup in order[1:]:
                 if tup[0] not in orderDict:
                      orderDict[tup[0]] = tup[1]
