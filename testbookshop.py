@@ -1,3 +1,7 @@
+# Project No.: 4
+# Author: Ani Malachi, Nick Ford
+# Description class module that contains Testbookshop class and corresponding methods 
+
 import unittest
 from bookshop import Bookshop
 
