@@ -20,19 +20,16 @@ class Bookshop:
         # filter out minimum price of product, 4 tuples
         # has order num, then which order has the least amnt total
         # so get the quantity * price and return the lowest one
-        orders = self.method1()
-        return [(order[0], min(order[1:], key=lambda x: x[1])[0]) for order in orders]
+        return [(order[0], min(order[1:], key=lambda x: x[1])[0]) for order in self.method1()]
         
     def method3(self):
         # filters out the maximum price ? so same thing as before
         # so order num, then order w the highest total amnt
-        orders = self.method1()
-        return [(order[0], max(order[1:], key=lambda x: x[1])[0]) for order in orders]
+        return [(order[0], max(order[1:], key=lambda x: x[1])[0]) for order in self.method1()]
         
     def method4(self):
-        order = self.orders
         book_order = []  # new list
-        for i in order:
+        for i in self.orders:
             num = 0
             for k in i[1:]:
                 num += ((k[1]) * (k[2]))  # adds price * quantity
@@ -46,9 +43,8 @@ class Bookshop:
 
     def method5(self):
         # use method 1 to get totals
-        order5 = self.method1()
         answ = {}
-        for i in order5:
+        for i in self.method1():
             for j in i[1:]:
                 if j[0] in answ:
                     answ[j[0]] += j[1]
@@ -57,8 +53,8 @@ class Bookshop:
         # dictionary filled with the numbers and their totals
         max_val = max(answ.values())  # finds max value
         max_key = max(answ, key=answ.get)  # finds max key
-        x = [max_key, max_val]
-        return x
+        
+        return [max_key, max_val]
         # returns list w two items, book order num and total amount of product in all order
         # returns order num that has max total amount of product in all order (??)
         # returns order num, which pops up multiple times, w the most amnt and the total
@@ -73,16 +69,17 @@ class Bookshop:
                      orderDict[tup[0]] = tup[1]
                 else:
                      orderDict[tup[0]] += tup[1]
-        return [val for val in max(orderDict.items(), key=lambda x: x[1])]
+                    
+        max_val = max(orderDict.values())  # finds max value
+        max_key = max(orderDict, key=orderDict.get)  # finds max key
+
+        return [max_key, max_val]
     
     def method7(self):
-        order = self.orders
         # get the whole order
-        bookshop_order = map(lambda x: (x[0], list(map(lambda y: y[1], x[1:]))), order)
-        # sums the second element of each tuple
-        new_order = map(lambda x: (x[0], reduce(lambda a, b: a + b, x[1])), bookshop_order)
-        new_order = list(new_order)  # makes it into list
-        new_order.sort(key=lambda x: x[1], reverse=True)  # sorts final list
+        bookshop_order = map(lambda x: (x[0], list(map(lambda y: y[1], x[1:]))), self.orders)
+        # sums the second element of each tuple and sort
+        new_order = sorted(list(map(lambda x: (x[0], reduce(lambda a, b: a + b, x[1])), bookshop_order)),key=lambda x: x[1], reverse=True)
         return new_order
         # returns an ordered list based on bookshop order num, per maximum total quantity
         # [(max bookshop order number, total quantity)....(min bookshop order num, total quantity)]
@@ -93,10 +90,9 @@ class Bookshop:
         return sum(sum(item[1] for item in line[1:]) for line in self.orders)
 
     def method9(self):
-        order5 = self.orders
         # similar to method 5, we go through with a dictionary
         answ = {}
-        for i in order5:
+        for i in self.orders:
             for j in i[1:]:
                 if j[0] in answ:
                     answ[j[0]] += 1  # adds one when an order number is the same
@@ -105,8 +101,8 @@ class Bookshop:
         # dictionary filled with the numbers and the times they appear
         max_key = max(answ, key=answ.get)  # finds max key
         min_key = min(answ, key=answ.get)
-        x = [max_key, min_key]
-        return x
+        
+        return [max_key, min_key]
         # returns a list w two items
         # most ordered book, book order num, and the least ordered ( book order num)
         # count the occurrence of book order number in all orders
