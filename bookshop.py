@@ -1,5 +1,5 @@
 # Project No.: 4
-# Author: Nick Ford
+# Author: Ani Malachi, Nick Ford
 # Description class module that contains bookshop class and corresponding methods 
 from functools import reduce
 
